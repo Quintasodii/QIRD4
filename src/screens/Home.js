@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import myImage from '../assets/fondo_home.png';
-
+import Creditos from '../components/Creditos';
 
 export default function Home() {
   return (
     <View style={styles.padre}>
+      
       <View style={styles.billetera}>
+      <Creditos/>
       </View>
       <View style={styles.wod}>
         <Text style={styles.wodtext}>Trabajo del día:</Text>

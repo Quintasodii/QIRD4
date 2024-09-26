@@ -7,7 +7,6 @@ export default function Clases () {
             <View style={styles.padre} >
                 <View style={styles.container} >
                     <Text style={styles.title} > Clases </Text>
-
                 </View>
             </View>
         );
