@@ -15,7 +15,25 @@ buildscript {
         classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath 'com.google.gms:google-services:4.4.2'
     }
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+project.ext {
+    set('react-native', [
+        versions: [
+            android: [
+                minSdk    : 23,
+                targetSdk : 34,
+                compileSdk: 34,
+            ],
+
+            
+            firebase: [
+                bom: "33.3.0"  
+            ],
+        ],
+    ])
+}
