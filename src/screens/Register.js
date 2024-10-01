@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Text, StyleSheet, View, Image, TextInput, TouchableOpacity, Alert, ImageBackground } from 'react-native';
+import firestore from '@react-native-firebase/firestore'
+import CustomInput from '../components/CustomInput';
 
 
 export default function Register(props) {
@@ -7,7 +9,11 @@ export default function Register(props) {
     <ImageBackground source={require('../assets/fondo_registro.jpg')} style={styles.imagen}>
       <View style={styles.padre}>
         <Text style={styles.title}>Registro</Text>
-
+        <View>
+        <CustomInput
+        placeholder='correo electronico'
+        />
+        </View>
         <View style={styles.tarjeta}>
           <View style={styles.cajatexto}>
             <TextInput
