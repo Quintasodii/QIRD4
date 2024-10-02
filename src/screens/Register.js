@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, StyleSheet, View, Image, TextInput, TouchableOpacity, Alert, ImageBackground } from 'react-native';
 import firestore from '@react-native-firebase/firestore'
 import CustomInput from '../components/CustomInput';
+import CustomButton from '../components/CustomButton';
 
 
 export default function Register(props) {
@@ -11,40 +12,28 @@ export default function Register(props) {
         <Text style={styles.title}>Registro</Text>
         <View>
         <CustomInput
+        placeholder='Nombre Completo'
+        />
+        </View>
+        <View>
+        <CustomInput
         placeholder='correo electronico'
         />
         </View>
-        <View style={styles.tarjeta}>
-          <View style={styles.cajatexto}>
-            <TextInput
-              placeholder='Nombre Completo'
-              style={{ paddingHorizontal: 15, color: 'white' }}
-              placeholderTextColor={'#00B2FF'}
-            />
-          </View>
-          <View style={styles.cajatexto}>
-            <TextInput
-              placeholder='Correo Electrónico'
-              style={{ paddingHorizontal: 15, color: 'white' }}
-              placeholderTextColor={'#00B2FF'}
-            />
-          </View>
-          <View style={styles.cajatexto}>
-            <TextInput
-              placeholder='Contraseña'
-              style={{ paddingHorizontal: 15, color: 'white' }}
-              secureTextEntry={true}
-              placeholderTextColor={'#00B2FF'}
-            />
-          </View>
-
-          <View style={styles.padreboton}>
-            <TouchableOpacity style={styles.cajaboton}>
-              <Text style={styles.textoboton}>Registrarse</Text>
-            </TouchableOpacity>
-          </View>
+        <View>
+        <CustomInput
+        placeholder='contraseña'
+        secureTextEntry={true}
+        />
         </View>
-
+        <View>
+        <CustomInput
+        placeholder='numero'
+        />
+        </View>
+        <View>
+          <CustomButton botoncual='REGISTRAR'/>
+        </View>
         <View>
           <TouchableOpacity onPress={() => props.navigation.navigate('Login')}>
             <Text style={styles.registrarse}>

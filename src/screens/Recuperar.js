@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ImageBackground} from 'react-native';
+import CustomButton from '../components/CustomButton';
+import CustomInput from '../components/CustomInput';
 
 export default function Recuperar(props) {
 
@@ -7,12 +9,15 @@ export default function Recuperar(props) {
     <ImageBackground source={require('../assets/fondo_registro.jpg')} style={styles.imagen}>
     <View style={styles.container}>
       <Text style={styles.title}>Recuperar contraseña</Text>
-      <View style={styles.input}>
-      <TextInput placeholder="Correo electrónico" style={{paddingHorizontal:15,color: 'white',}} placeholderTextColor="#ffffff"/>
+      <CustomInput placeholder='Correo electrónico'/>
+    <CustomButton botoncual='Enviar'/>
+    <View>
+          <TouchableOpacity onPress={() => props.navigation.navigate('Login')}>
+            <Text style={{color:'#fff'}}>
+              Ya tienes cuenta? <Text style={{ color: '#00B2FF', textDecorationLine: 'underline' }}>Iniciar Sesión</Text>
+            </Text>
+          </TouchableOpacity>
         </View>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Enviar</Text>
-      </TouchableOpacity>
     </View>
     </ImageBackground>
   );
@@ -37,29 +42,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#ffffff',
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-    marginVertical: '10%',
-    width: '90%',
-    borderRadius: 15,
-    color: '#ffffff',
-  },
-  button: {
-    backgroundColor: '#00B2FF',
-    padding: 10,
-    borderRadius: 15,
-    width: '90%',
-    height: 45,
-    marginTop: '10%',
-  },
-  buttonText: {
-    color: 'black',
-    fontSize: 18,
-    textAlign: 'center',
   },
 });

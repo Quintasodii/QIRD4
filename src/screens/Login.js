@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet, View, TextInput, TouchableOpacity, Alert, ImageBackground } from 'react-native';
+import { Text, StyleSheet, View, TextInput, TouchableOpacity, Alert, ImageBackground, Dimensions } from 'react-native';
+import CustomInput from '../components/CustomInput';
+import CustomButton from '../components/CustomButton';
 
-
+const {width: screenWidth} = Dimensions.get('screen')
+const {height: screenHeight} = Dimensions.get('screen')
 
 
 export default function Login(props) {
@@ -11,21 +14,8 @@ export default function Login(props) {
         <Text style={styles.title}>Bienvenido</Text>
 
         <View style={styles.tarjeta}>
-          <View style={styles.cajatexto}>
-            <TextInput
-              placeholder="Usuario"
-              style={{ paddingHorizontal: 15, color: 'white' }}
-              placeholderTextColor={'#00B2FF'}
-            />
-          </View>
-          <View style={styles.cajatexto}>
-            <TextInput
-              placeholder="Contraseña"
-              style={{ paddingHorizontal: 15, color: 'white' }}
-              secureTextEntry={true}
-              placeholderTextColor={'#00B2FF'}
-            />
-          </View>
+          <CustomInput placeholder='Usuario o Email'/>
+          <CustomInput placeholder='Contraseña' secureTextEntry={true}/>
 
           <View>
             <TouchableOpacity onPress={() => props.navigation.navigate('Recuperar')}>
@@ -35,14 +25,14 @@ export default function Login(props) {
               </Text>
             </TouchableOpacity>
           </View>
-
-          <View style={styles.padreboton}>
-            <TouchableOpacity style={styles.cajaboton} onPress={() => props.navigation.navigate('MyTabs', {screen : 'Home'})}>
-              <Text style={styles.textoboton}>Ingresar</Text>
-            </TouchableOpacity>
-          </View>
+          <CustomButton botoncual='Ingresar'/>
+          <View>
+          <TouchableOpacity style={styles.gulugulu}>
+            <Text style={styles.gulugulutext}>Ingresar con Google</Text>
+          </TouchableOpacity>
         </View>
-
+        </View>
+      
         <View>
           <TouchableOpacity onPress={() => props.navigation.navigate('Register')}>
             <Text style={styles.registrarse}>
@@ -57,6 +47,20 @@ export default function Login(props) {
 }
 
 const styles = StyleSheet.create({
+  gulugulutext:{
+    color: '#fff',
+    fontSize: 20,
+    
+  },
+  gulugulu:{
+    borderColor: '#fff',
+    borderWidth: 0.5,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: screenWidth*0.68,
+    height: screenHeight*0.061
+  },
   padre: {
     flex: 1,
     backgroundColor: '#000000',
@@ -81,6 +85,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     width: '90%',
     padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   cajatexto: {
     paddingVertical: 20,
